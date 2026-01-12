@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UKM BKM Member Spotlight</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c1818",
+                        "accent-yellow": "#FFD700",
+                        "paper": "#F5F5F5",
+                        "ink": "#1a0f0f",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#201212",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "hard": "4px 4px 0px 0px #1a0f0f",
+                        "hard-sm": "2px 2px 0px 0px #1a0f0f",
+                        "hard-lg": "8px 8px 0px 0px #1a0f0f",
+                        "hard-primary": "4px 4px 0px 0px #8c1818",
+                    },
+                    backgroundImage: {
+                        'paper-pattern': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='50' cy='50' r='1'/%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                },
+            },
+        }
+    </script>
+<style>.tape {
+            background-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            backdrop-filter: blur(2px);
+        }
+        .tape-red {
+            background-color: rgba(140, 24, 24, 0.85);
+        }
+        .clip-jagged {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 95% 98%, 90% 100%, 85% 98%, 80% 100%, 75% 98%, 70% 100%, 65% 98%, 60% 100%, 55% 98%, 50% 100%, 45% 98%, 40% 100%, 35% 98%, 30% 100%, 25% 98%, 20% 100%, 15% 98%, 10% 100%, 5% 98%, 0% 100%);
+        }
+        .clip-tag {
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%);
+        }.hover-straighten:hover {
+            transform: scale(1.08) rotate(1deg);
+            z-index: 30;
+        }.cursor-camera {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%231a0f0f' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z'/%3E%3Ccircle cx='12' cy='13' r='3'/%3E%3C/svg%3E") 16 16, pointer;
+        }
+        .cursor-smiley {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='%23FFD700' stroke='%231a0f0f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 14s1.5 2 4 2 4-2 4-2'/%3E%3Cline x1='9' y1='9' x2='9.01' y2='9'/%3E%3Cline x1='15' y1='9' x2='15.01' y2='9'/%3E%3C/svg%3E") 16 16, pointer;
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+</head>
+<!--#include virtual="navbar.html" -->
+<!-- Jika SSI tidak aktif, copy isi navbar.html ke sini secara manual -->
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+ <!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<nav class="sticky top-0 z-50 w-full px-4 py-4 pointer-events-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
+    <div class="relative group transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+      <div class="absolute inset-0 bg-accent-gold rounded-lg shadow-hard border-2 border-[#1a0f0f]"></div>
+      <div class="relative bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <div class="flex flex-col leading-none">
+          <span class="font-black text-lg tracking-tighter">UKM BKM</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary">UINMYBSK</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-1 hover:rotate-0 hover:bg-accent-orange text-sm" href="index.html">Home</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-1 hover:rotate-0 hover:bg-accent-gold text-sm" href="activity.html">Events</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-2 hover:rotate-0 hover:bg-accent-orange text-sm" href="member.html">Gallery</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-2 hover:rotate-0 hover:bg-accent-gold text-sm" href="organisation division.html">Divisions</a>
+      <a class="bg-primary text-white border-2 border-[#1a0f0f] px-6 py-2 rounded-full font-black shadow-hard hover:translate-y-1 hover:shadow-none transition-all rotate-3 hover:rotate-0 uppercase text-sm" href="join.html">Join Us!</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden bg-white border-2 border-[#1a0f0f] p-2 rounded-lg shadow-hard-sm active:shadow-none active:translate-y-1">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="mobile-nav" class="fixed inset-0 z-[999] bg-black/40 backdrop-blur-sm flex justify-end transition-all duration-300 invisible opacity-0 pointer-events-none">
+      <div class="w-64 bg-white h-full shadow-hard-lg p-6 flex flex-col gap-4 transform translate-x-full transition-transform duration-300">
+        <button id="close-mobile-nav" class="self-end mb-6 bg-primary text-white rounded-full p-2 border-2 border-[#1a0f0f]">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="index.html">Home</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="activity.html">Events</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="member.html">Gallery</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="organisation division.html">Divisions</a>
+        <a class="mb-2 font-bold text-white bg-primary rounded-full px-4 py-2 text-center" href="join.html">Join Us!</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const closeBtn = document.getElementById('close-mobile-nav');
+  if(btn && nav && closeBtn) {
+    btn.addEventListener('click', () => {
+      nav.classList.remove('invisible','opacity-0','pointer-events-none');
+      setTimeout(()=>{
+        nav.querySelector('div').classList.remove('translate-x-full');
+      },10);
+    });
+    closeBtn.addEventListener('click', () => {
+      nav.querySelector('div').classList.add('translate-x-full');
+      setTimeout(()=>{
+        nav.classList.add('invisible','opacity-0','pointer-events-none');
+      },300);
+    });
+    nav.addEventListener('click', e => {
+      if(e.target === nav) {
+        nav.querySelector('div').classList.add('translate-x-full');
+        setTimeout(()=>{
+          nav.classList.add('invisible','opacity-0','pointer-events-none');
+        },300);
+      }
+    });
+  }
+</script>
+<!--#include virtual="navbar.html" -->
+<!-- Jika SSI tidak aktif, copy isi navbar.html ke sini secara manual -->
+<body class="bg-paper text-ink font-display overflow-x-hidden selection:bg-accent-yellow selection:text-primary">
+<!--#include virtual="navbar.html" -->
+<!-- Jika SSI tidak aktif, copy isi navbar.html ke sini secara manual -->
+<main class="relative w-full min-h-screen bg-paper-pattern pb-20">
+<div class="absolute top-20 left-10 w-32 h-32 bg-accent-yellow rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+<div class="absolute top-40 right-20 w-48 h-48 bg-primary rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+<section class="relative pt-16 pb-12 px-6 overflow-hidden">
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<div class="absolute -top-6 left-1/4 w-32 h-8 bg-primary/20 -rotate-3 transform"></div>
+<div class="absolute -top-4 right-1/4 w-24 h-6 tape rotate-2 transform"></div>
+<h1 class="text-6xl md:text-8xl font-black text-ink mb-6 relative inline-block">
+<span class="inline-block transform -rotate-2 text-primary drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">MEET</span>
+<span class="inline-block transform rotate-3 relative">
+                        THE
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-accent-yellow" preserveAspectRatio="none" viewBox="0 0 100 10">
+<path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path>
+</svg>
+</span>
+<br/>
+<span class="inline-block transform -rotate-1 bg-ink text-white px-4 py-1 mt-2 shadow-hard-primary clip-jagged">SQUAD</span>
+</h1>
+<p class="text-lg md:text-xl font-body font-medium text-gray-700 max-w-2xl mx-auto mt-6 bg-white/80 p-4 border-2 border-dashed border-gray-300 rounded-xl transform rotate-1">
+                The creative voices, debaters, and leaders behind UKM BKM. We are a messy, loud, and passionate family.
+            </p>
+<div class="mt-10 relative max-w-md mx-auto">
+<div class="absolute inset-0 bg-ink transform translate-x-2 translate-y-2 rounded-lg"></div>
+<div class="relative flex items-center bg-white border-2 border-ink rounded-lg p-1">
+<span class="material-symbols-outlined text-2xl text-primary ml-3">search</span>
+<input class="w-full border-none focus:ring-0 text-ink font-bold placeholder-gray-400 bg-transparent" placeholder="Find a member..." type="text"/>
+<button class="bg-primary text-white px-5 py-2 font-bold uppercase text-sm border border-primary hover:bg-ink transition-colors rounded">
+  <a href="join.html" class="bg-primary text-white px-5 py-2 font-bold uppercase text-sm border border-primary hover:bg-ink transition-colors rounded block">REGISTER NOW</a>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 mb-16">
+<div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-4 md:gap-6 relative">
+<button class="transform -rotate-2 hover:rotate-0 hover:scale-110 transition-all duration-300">
+<div class="bg-white border-2 border-ink px-6 py-2 shadow-hard-sm">
+<span class="font-bold text-ink uppercase tracking-wider">All Members</span>
+</div>
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-3 tape rotate-90"></div>
+</button>
+<button class="transform rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-300 group">
+<div class="bg-primary border-2 border-ink px-6 py-2 shadow-hard-sm">
+<span class="font-bold text-white uppercase tracking-wider">Leadership</span>
+</div>
+<div class="absolute -top-3 left-2 w-10 h-4 tape-red -rotate-12 opacity-50"></div>
+</button>
+<button class="transform -rotate-1 hover:rotate-0 hover:scale-110 transition-all duration-300">
+<div class="bg-accent-yellow border-2 border-ink px-6 py-2 shadow-hard-sm clip-tag pl-8">
+<span class="font-bold text-ink uppercase tracking-wider">English Div</span>
+</div>
+</button>
+<button class="transform rotate-2 hover:rotate-0 hover:scale-110 transition-all duration-300">
+<div class="bg-white border-2 border-ink px-6 py-2 shadow-hard-sm rounded-full border-dashed">
+<span class="font-bold text-ink uppercase tracking-wider">Arabic Div</span>
+</div>
+</button>
+<button class="transform -rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-300">
+<div class="bg-ink border-2 border-white px-6 py-2 shadow-hard-sm">
+<span class="font-bold text-white uppercase tracking-wider">Public Speaking</span>
+</div>
+<div class="absolute -bottom-2 -right-2 w-4 h-4 bg-primary rounded-full border border-ink"></div>
+</button>
+</div>
+</section>
+<section class="px-4 md:px-10 pb-20 max-w-[1400px] mx-auto">
+<div class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-8 space-y-12">
+<div class="break-inside-avoid relative group hover-straighten cursor-camera transition-all duration-300 transform rotate-1 mb-8">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 tape z-10 opacity-90"></div>
+<div class="bg-white p-3 pb-8 shadow-hard border border-gray-200">
+<div class="aspect-[4/5] w-full bg-gray-100 mb-4 overflow-hidden border border-gray-100 relative">
+<img alt="Portrait of Sarah Azizah wearing a hijab and blazer against a neutral background" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmLPfz8_mPUHQjOdfH5X2c1oCeMJc4z66AFO560GuHxtPXfaAkug2HdV0Pt2jUdVqbjbPDOJ1rSiahO-WJadi_1eM1ibEdh7au57rejTnYXRBGSwZrzNL9A3CJO0HSaoD4TD7ZpW6Z3Hw45eNLtRCU6QluBI44BVs1OewUKAjHYqKBdzFqGCq3NS5BfzvSD3uwYoLm9Sxi8DmVdZRGVZECbMBjj4kpwmjOWVAi93kHEBpL4ryyco5rR95AeJx2papsYSoAoe4he0U"/>
+<div class="absolute bottom-2 right-2 bg-primary text-white text-xs font-bold px-2 py-0.5">PREZ</div>
+</div>
+<div class="text-center relative">
+<h3 class="font-display font-black text-2xl text-ink leading-tight">Sarah Azizah</h3>
+<p class="font-body text-primary font-bold text-sm uppercase tracking-widest mt-1">President</p>
+<p class="font-handwriting text-gray-500 text-sm mt-3 transform -rotate-2" style="font-family: 'Courier New', monospace;">"Let's make noise!"</p>
+<svg class="absolute -bottom-4 -right-2 w-8 h-8 text-accent-yellow" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-smiley transition-all duration-300 transform -rotate-2 mt-10">
+<div class="absolute inset-0 bg-primary transform translate-x-2 translate-y-2 clip-jagged"></div>
+<div class="relative bg-white p-6 shadow-sm border-2 border-ink clip-jagged">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-ink bg-accent-yellow">
+<img alt="Close up of a young man smiling looking away" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtpW-bFK-NySV7wlmI-huIsuWPPXZx_7I5TaaBS-QA2mtWv2NJNSs2rbVDqD5s3ut4If-pAYyA3Gv12GIB0IEB2MWMMr8s49gVctagBjyo6nye9PkUMk-2nWXnrvVG0NtQShoTu2dq4zW5ajvHyGUqqtA7XHno2uCx_Kvz0OEFU3UUXkRgCm5xnt4LZRUYSe68HM5cUJIRaQx4pIIxYOnc0PRfrdoU92GQGT2u_SYiNj6jf1r_1AR2i0LStD_z6KZ4kGNtNYzfzU4"/>
+</div>
+<div>
+<h3 class="font-black text-xl text-ink">Rizky Billar</h3>
+<div class="bg-accent-yellow inline-block px-2 transform -rotate-1">
+<p class="font-bold text-xs text-ink uppercase">English Lead</p>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t-2 border-dashed border-gray-300">
+<p class="font-body text-sm text-gray-700 leading-snug">"Grammar police but make it fun. Join my debate class!"</p>
+</div>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-camera transition-all duration-300 transform rotate-3 flex flex-col items-center">
+<div class="relative w-48 h-48">
+<div class="absolute inset-0 bg-ink rounded-full animate-spin-slow" style="clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); animation-duration: 20s;"></div>
+<div class="absolute inset-2 bg-white rounded-full overflow-hidden border-4 border-white shadow-lg">
+<img alt="Profile of Amira looking confident with colorful background" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByjVzKOW5vwVqDjNP9YVV6Dzh6HNfABy_nOC6AJlYiKFi4ea4BuRuvko14Nx-UP-MvoB9M43JYOkJoXwISa65fFV_wxkQtyAHiNl3rU4Q8gd4rNvrXig3WBmhQRvMEWlx-yC6K-nST3XzTlqJl7GLGMPgdzS4hcE7l6NJTGkzvzwWxf_BrJOnI2VCOUbrns80C7QMeTTVl8vz2piSOSmxIMvJNjKzdEf7qm5WCReLIdLdHrzLir3ShLjwRcckYOzsbXgvm6X-GGO0"/>
+</div>
+<div class="absolute -right-2 -top-2 bg-primary text-white w-10 h-10 flex items-center justify-center rounded-full border-2 border-white shadow-md transform group-hover:scale-125 transition-transform">
+<span class="material-symbols-outlined text-sm">brush</span>
+</div>
+</div>
+<div class="mt-4 bg-white px-4 py-2 border-2 border-ink shadow-[4px_4px_0px_#FFD700] transform -rotate-2">
+<h3 class="font-black text-lg text-ink">Amira L.</h3>
+<p class="text-xs font-bold text-gray-500 uppercase text-center">Creative Media</p>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-smiley transition-all duration-300 transform -rotate-1 pt-6">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 z-20 w-8 h-8 bg-gray-300 rounded-full border border-gray-400 shadow-inner flex items-center justify-center">
+<div class="w-3 h-3 bg-red-800 rounded-full shadow-sm"></div>
+</div>
+<div class="bg-[#fffdf0] p-4 rounded-none shadow-hard border-t-8 border-primary relative mt-4">
+<div class="flex flex-col gap-3">
+<img alt="Portrait of Fatimah smiling broadly" class="w-full aspect-square object-cover border border-ink grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfxQwLqXxxMGwlDsX96-z8t1UMHJhaT7ZSmTm3yW3nTSVfvtXZNDeNrDH9vbaHkcAr1Ir_41zbFSMce84p1v0trJJXe5Qh3kjp9SL7Nxlf99hMO5UO8FWjgTadaafjGqLOOOhVKMkQ8KrKzPMuvKbzO6VNFqDuSXfUqaLlqohGXG_k5vxKw7mCkHQFdKhe2JGdrfCuIqMVSDtqeTGJF5Li2B6Ko6UcRByzbDvve3ChqH9aFEIDs_zk1sqXSncPuotQzoJBAY4mFpI"/>
+<div>
+<h3 class="font-black text-xl text-ink">Fatimah Zahra</h3>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">translate</span>
+<p class="font-bold text-xs uppercase">Arabic Division</p>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-3 -right-3 bg-accent-yellow text-ink text-[10px] font-black px-2 py-1 transform rotate-12 border border-ink shadow-sm">
+                        #CALLIGRAPHY
+                    </div>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-camera transition-all duration-300 transform rotate-2">
+<div class="bg-ink text-white p-5 rounded-2xl rounded-tr-none shadow-hard-primary">
+<div class="flex justify-between items-start mb-4">
+<div class="w-16 h-16 bg-white rounded-full overflow-hidden border-2 border-accent-yellow">
+<img alt="Side profile of Ahmad looking focused" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCtm5tbDervpo0nDUrCnljXbiCt9FMMlr4BkDZQk4MVfQEu_wSbMw03dfibR2Feg5pLnvS5qIh1Pb4yGINj-vCZKX3jebEUBxFQfj6YQ7TdlPrYrcsi3Hzf6nwOY21KTLBC_jBgFaKbHXI1G3xYKAR4zXBAvQRISZushznf4EqUCMZ6FK_xYTDu8PPK25vUhF_wvJ_US_bautvTonA1fJqMgSYFDQ4LtBj1RX4kWEJ0a0_BYUrkUjWw2yAWB9mOSl_YGoxI7nw07E"/>
+</div>
+<span class="material-symbols-outlined text-accent-yellow text-3xl">mic</span>
+</div>
+<h3 class="font-display font-black text-2xl tracking-tight">Ahmad H.</h3>
+<p class="text-gray-400 text-sm mb-4">Public Speaking</p>
+<div class="h-1 w-full bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full w-3/4 bg-primary"></div>
+</div>
+<p class="text-[10px] uppercase tracking-wider text-gray-500 mt-2 text-right">Energy Level</p>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-smiley transition-all duration-300 transform -rotate-1">
+<div class="bg-white p-0 shadow-lg relative overflow-hidden" style="background-image: repeating-linear-gradient(#fff 0px, #fff 24px, #00BFFF 25px);">
+<div class="absolute top-0 bottom-0 left-8 w-px bg-red-400"></div>
+<div class="absolute top-4 left-3 w-3 h-3 bg-paper rounded-full shadow-inner"></div>
+<div class="absolute top-1/2 left-3 w-3 h-3 bg-paper rounded-full shadow-inner"></div>
+<div class="absolute bottom-4 left-3 w-3 h-3 bg-paper rounded-full shadow-inner"></div>
+<div class="pl-12 pr-4 py-6">
+<div class="w-20 h-20 bg-gray-200 mb-2 transform rotate-2 border-4 border-white shadow-sm overflow-hidden">
+<img alt="Candid shot of Dina laughing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCParxUO4DhAyWu2ZCOpZ8E-tD-wwiLMj7DVsJmroPgED1Kns4uwYd_JksF6FeClhpqghkL_o-jIvNSWoZapOsYJ3kLIzDn9xSC3vmTTXB6aOGVqpVvWNjOhJTEAbOTeIMiY2Sn0gI_S2hivRCr5Y4K3Hdr9zg-HS42FYLMkWHvV8aDRuI8jpVhE6ukBHa-CQyhYcNRixPi-tzE8dqt2EBgyQ6VXOdufXhboRzAhdOafc_hWtp7PP3jXxkCiFEDIGXfV6epd81pC_U"/>
+</div>
+<h3 class="font-handwriting font-bold text-xl text-ink" style="font-family: 'Courier New', monospace;">Dina W.</h3>
+<p class="text-sm text-gray-600 bg-white/50 inline-block">Secretary General</p>
+<p class="text-xs text-gray-500 mt-2 italic bg-white/80 p-1">"Notes are life."</p>
+</div>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-camera transition-all duration-300 transform rotate-3 flex justify-center">
+<div class="bg-accent-yellow w-64 p-6 shadow-md" style="clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%);">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 tape bg-white/40"></div>
+<div class="flex flex-col items-center">
+<img alt="Portrait of Budi looking serious" class="w-24 h-24 rounded-full border-4 border-white mb-3 object-cover shadow-sm group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuButslaKInszHFw8OOmmoer2HiDGMXIX2l23P7PWlyiyBZfCui9MWVDv3cTcqUGQjYGKV6EWl1ioI_hJGhUasBed7BUj_qDW9KQjLTmLu_kjvZy4c72_DcEPmaZW-w-WlFVbJDiubYq3KHFCVgpng7x1lmuhMYi1BH763mLYqyCg8E3IB0wJVu4eIW0iWTOY3U_EEwEe6fk6fSLoYbMTedMrlkP0v-x2EAXKCnooLm_kMd4lCExzUu6JJVP2oZUkQBOifQZ0seBmBM"/>
+<h3 class="font-black text-xl text-ink border-b-2 border-ink pb-1 mb-1">Budi S.</h3>
+<p class="font-bold text-sm text-primary uppercase">Treasurer</p>
+<div class="mt-3 flex gap-2">
+<span class="text-xl">💰</span>
+<span class="text-xl">📊</span>
+</div>
+</div>
+</div>
+</div>
+<div class="break-inside-avoid relative group hover-straighten cursor-smiley transition-all duration-300 transform -rotate-2">
+<div class="bg-[#f0f0f0] p-4 shadow-hard border border-gray-400 grayscale group-hover:grayscale-0 transition-all">
+<div class="border-b-2 border-black mb-2 pb-1">
+<h4 class="font-serif text-xs font-bold uppercase text-center tracking-widest">The Daily BKM</h4>
+</div>
+<h3 class="font-display font-black text-2xl leading-none mb-2">EXTRA! EXTRA!</h3>
+<div class="flex gap-2">
+<img alt="Portrait of Sari wearing glasses" class="w-1/2 aspect-square object-cover filter contrast-125 group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAyQeXrUfIrj0nvs09kfy9_mCFmSC7ZYCRRxe2Y6slI1qbh_I-Hp3NBsInsO04hEKmC0D65j640NNIdZ85nSyZNWx3pw9bl0d4tdVwkzqVYZCAgt1KmmwkBZU_JLCoyBJMw86G9l8e-Hr3kcvApskOBFfW-aYy9Roh08Q4eJYUXB_UGqrguriZVrhdT2-aarn5I3LH6BmPiuknGZlBV3eZzAVntB_oGVRCdJMHdF-2EonDqxsSrUZp-yZ5u1JWPEy-RMJZQQPiZGQ"/>
+<div class="w-1/2 flex flex-col justify-between">
+<p class="text-[10px] font-serif leading-tight">Sari M. leads the journalism team with a sharp pen and sharper wit.</p>
+<span class="text-xs font-bold bg-black text-white px-1 self-start">EDITOR</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="flex justify-center pb-20 px-6">
+<div class="relative group cursor-pointer">
+<div class="bg-primary text-white p-8 md:p-12 max-w-2xl text-center transform rotate-1 transition-transform group-hover:rotate-0 shadow-hard-lg border-2 border-ink relative" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 98% 95%, 96% 100%, 94% 95%, 92% 100%, 90% 95%, 88% 100%, 86% 95%, 84% 100%, 82% 95%, 80% 100%, 78% 95%, 76% 100%, 74% 95%, 72% 100%, 70% 95%, 68% 100%, 66% 95%, 64% 100%, 62% 95%, 60% 100%, 58% 95%, 56% 100%, 54% 95%, 52% 100%, 50% 95%, 48% 100%, 46% 95%, 44% 100%, 42% 95%, 40% 100%, 38% 95%, 36% 100%, 34% 95%, 32% 100%, 30% 95%, 28% 100%, 26% 95%, 24% 100%, 22% 95%, 20% 100%, 18% 95%, 16% 100%, 14% 95%, 12% 100%, 10% 95%, 8% 100%, 6% 95%, 4% 100%, 2% 95%, 0% 100%);">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 tape bg-[#fff]/30 rotate-2"></div>
+<h2 class="text-4xl md:text-5xl font-black mb-4">WANNA JOIN THE CIRCUS?</h2>
+<p class="text-lg font-medium mb-8 opacity-90">We are recruiting new members for the next semester. Don't miss out!</p>
+<button class="bg-accent-yellow text-ink font-black text-xl px-8 py-3 rounded-full border-2 border-ink hover:scale-110 hover:shadow-hard-sm transition-all" href = "join.html">
+                     <a href="join.html" class="bg-primary text-white px-5 py-2 font-bold uppercase text-sm border border-primary hover:bg-ink transition-colors rounded block">REGISTER NOW</a>
+
+                </button>
+</div>
+<div class="absolute -left-12 top-10 text-6xl transform -rotate-12 animate-bounce hidden md:block">🎪</div>
+<div class="absolute -right-10 bottom-10 text-6xl transform rotate-12 animate-pulse hidden md:block">✨</div>
+</div>
+</section>
+</main>
+
+</body></html>

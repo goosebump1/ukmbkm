@@ -1,0 +1,64 @@
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<nav class="sticky top-0 z-50 w-full px-4 py-4 pointer-events-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
+    <div class="relative group transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+      <div class="absolute inset-0 bg-accent-gold rounded-lg shadow-hard border-2 border-[#1a0f0f]"></div>
+      <div class="relative bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <div class="flex flex-col leading-none">
+          <span class="font-black text-lg tracking-tighter">UKM BKM</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary">UINMYBSK</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-1 hover:rotate-0 hover:bg-accent-orange text-sm" href="index.html">Home</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-1 hover:rotate-0 hover:bg-accent-gold text-sm" href="activity.html">Events</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-2 hover:rotate-0 hover:bg-accent-orange text-sm" href="member.html">Gallery</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-2 hover:rotate-0 hover:bg-accent-gold text-sm" href="organisation division.html">Divisions</a>
+      <a class="bg-primary text-white border-2 border-[#1a0f0f] px-6 py-2 rounded-full font-black shadow-hard hover:translate-y-1 hover:shadow-none transition-all rotate-3 hover:rotate-0 uppercase text-sm" href="join.html">Join Us!</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden bg-white border-2 border-[#1a0f0f] p-2 rounded-lg shadow-hard-sm active:shadow-none active:translate-y-1">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="mobile-nav" class="fixed inset-0 z-[999] bg-black/40 backdrop-blur-sm flex justify-end transition-all duration-300 invisible opacity-0 pointer-events-none">
+      <div class="w-64 bg-white h-full shadow-hard-lg p-6 flex flex-col gap-4 transform translate-x-full transition-transform duration-300">
+        <button id="close-mobile-nav" class="self-end mb-6 bg-primary text-white rounded-full p-2 border-2 border-[#1a0f0f]">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="index.html">Home</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="activity.html">Events</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="member.html">Gallery</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="organisation division.html">Divisions</a>
+        <a class="mb-2 font-bold text-white bg-primary rounded-full px-4 py-2 text-center" href="join.html">Join Us!</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const closeBtn = document.getElementById('close-mobile-nav');
+  if(btn && nav && closeBtn) {
+    btn.addEventListener('click', () => {
+      nav.classList.remove('invisible','opacity-0','pointer-events-none');
+      setTimeout(()=>{
+        nav.querySelector('div').classList.remove('translate-x-full');
+      },10);
+    });
+    closeBtn.addEventListener('click', () => {
+      nav.querySelector('div').classList.add('translate-x-full');
+      setTimeout(()=>{
+        nav.classList.add('invisible','opacity-0','pointer-events-none');
+      },300);
+    });
+    nav.addEventListener('click', e => {
+      if(e.target === nav) {
+        nav.querySelector('div').classList.add('translate-x-full');
+        setTimeout(()=>{
+          nav.classList.add('invisible','opacity-0','pointer-events-none');
+        },300);
+      }
+    });
+  }
+</script>

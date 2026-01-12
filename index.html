@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hero Intro - UKM BKM UINMYBSK</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#8c1818",
+              "primary-dark": "#6b1212",
+              "accent-gold": "#FFD700",
+              "accent-orange": "#FF6600",
+              "background-light": "#fbf8f8",
+              "background-dark": "#201212",
+              "paper": "#f5f5f5",
+            },
+            fontFamily: {
+              "display": ["Epilogue", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            boxShadow: {
+                'hard': '4px 4px 0px 0px rgba(26, 15, 15, 1)',
+                'hard-sm': '2px 2px 0px 0px rgba(26, 15, 15, 1)',
+                'hard-lg': '8px 8px 0px 0px rgba(26, 15, 15, 1)',
+                'hard-white': '4px 4px 0px 0px #ffffff',
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>.bg-grid-pattern {
+            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .paper-tear-bottom {
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        }.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.cursor-explore {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40' style='font-family:sans-serif'><circle cx='16' cy='16' r='10' fill='%23FFD700' stroke='%231a0f0f' stroke-width='2'/><line x1='22' y1='22' x2='28' y2='28' stroke='%231a0f0f' stroke-width='4' stroke-linecap='round'/><rect x='38' y='8' width='70' height='24' rx='12' fill='%231a0f0f' stroke='%23FFD700' stroke-width='1'/><text x='73' y='24' fill='%23FFD700' font-weight='900' font-size='10' text-anchor='middle' letter-spacing='1'>EXPLORE</text></svg>") 16 16, pointer;
+        }.cursor-drag {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40' style='font-family:sans-serif'><rect x='6' y='10' width='14' height='20' rx='2' fill='%23FFD700' stroke='%231a0f0f' stroke-width='2'/><rect x='10' y='6' width='6' height='4' fill='%231a0f0f'/><circle cx='13' cy='4' r='1' fill='%23FF6600'/><rect x='34' y='8' width='75' height='24' rx='12' fill='%23FF6600' stroke='%231a0f0f' stroke-width='2'/><text x='71' y='24' fill='%231a0f0f' font-weight='900' font-size='10' text-anchor='middle' letter-spacing='1'>DRAG ME</text></svg>") 13 13, move;
+        }
+    </style>
+</head>
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<!--#include virtual="navbar.html" -->
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<nav class="sticky top-0 z-50 w-full px-4 py-4 pointer-events-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
+    <div class="relative group transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+      <div class="absolute inset-0 bg-accent-gold rounded-lg shadow-hard border-2 border-[#1a0f0f]"></div>
+      <div class="relative bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <div class="flex flex-col leading-none">
+          <span class="font-black text-lg tracking-tighter">UKM BKM</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary">UINMYBSK</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-1 hover:rotate-0 hover:bg-accent-orange text-sm" href="index.html">Home</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-1 hover:rotate-0 hover:bg-accent-gold text-sm" href="activity.html">Events</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-2 hover:rotate-0 hover:bg-accent-orange text-sm" href="member.html">Gallery</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-2 hover:rotate-0 hover:bg-accent-gold text-sm" href="organisation division.html">Divisions</a>
+      <a class="bg-primary text-white border-2 border-[#1a0f0f] px-6 py-2 rounded-full font-black shadow-hard hover:translate-y-1 hover:shadow-none transition-all rotate-3 hover:rotate-0 uppercase text-sm" href="join.html">Join Us!</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden bg-white border-2 border-[#1a0f0f] p-2 rounded-lg shadow-hard-sm active:shadow-none active:translate-y-1">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="mobile-nav" class="fixed inset-0 z-[999] bg-black/40 backdrop-blur-sm flex justify-end transition-all duration-300 invisible opacity-0 pointer-events-none">
+      <div class="w-64 bg-white h-full shadow-hard-lg p-6 flex flex-col gap-4 transform translate-x-full transition-transform duration-300">
+        <button id="close-mobile-nav" class="self-end mb-6 bg-primary text-white rounded-full p-2 border-2 border-[#1a0f0f]">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="index.html">Home</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="activity.html">Events</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="member.html">Gallery</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="organisation division.html">Divisions</a>
+        <a class="mb-2 font-bold text-white bg-primary rounded-full px-4 py-2 text-center" href="join.html">Join Us!</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const closeBtn = document.getElementById('close-mobile-nav');
+  if(btn && nav && closeBtn) {
+    btn.addEventListener('click', () => {
+      nav.classList.remove('invisible','opacity-0','pointer-events-none');
+      setTimeout(()=>{
+        nav.querySelector('div').classList.remove('translate-x-full');
+      },10);
+    });
+    closeBtn.addEventListener('click', () => {
+      nav.querySelector('div').classList.add('translate-x-full');
+      setTimeout(()=>{
+        nav.classList.add('invisible','opacity-0','pointer-events-none');
+      },300);
+    });
+    nav.addEventListener('click', e => {
+      if(e.target === nav) {
+        nav.querySelector('div').classList.add('translate-x-full');
+        setTimeout(()=>{
+          nav.classList.add('invisible','opacity-0','pointer-events-none');
+        },300);
+      }
+    });
+  }
+</script>
+<!-- Jika SSI tidak aktif, copy isi navbar.html ke sini secara manual -->
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1a0f0f] overflow-x-hidden">
+
+<!-- ===== Jukebox Music Player ===== -->
+<div id="jukebox-toggle" style="position:fixed;bottom:32px;right:32px;z-index:9999;">
+  <div id="jukebox-btn" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FF6600);box-shadow:0 2px 8px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s;">
+    <span id="jukebox-icon" style="font-size:1.3rem;color:#8c1818;transition:color 0.2s;">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" stroke="#8c1818" stroke-width="4" fill="#fff"/>
+        <circle cx="24" cy="24" r="10" fill="#FFD700" stroke="#8c1818" stroke-width="2"/>
+        <rect x="20" y="16" width="8" height="16" rx="4" fill="#FF6600" stroke="#8c1818" stroke-width="2"/>
+        <rect x="22" y="20" width="4" height="8" rx="2" fill="#fff"/>
+      </svg>
+    </span>
+  </div>
+</div>
+<audio id="jukebox-audio" src="bgm.mp3" loop></audio>
+<script>
+  const jukeboxBtn = document.getElementById('jukebox-btn');
+  const jukeboxAudio = document.getElementById('jukebox-audio');
+  const jukeboxIcon = document.getElementById('jukebox-icon');
+  let isPlaying = false;
+  function playMusic() {
+    jukeboxAudio.play();
+    jukeboxBtn.style.transform = 'scale(1.1)';
+    jukeboxIcon.style.color = '#FF6600';
+    isPlaying = true;
+  }
+  function pauseMusic() {
+    jukeboxAudio.pause();
+    jukeboxBtn.style.transform = 'scale(1)';
+    jukeboxIcon.style.color = '#8c1818';
+    isPlaying = false;
+  }
+  jukeboxBtn.addEventListener('click', function() {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  });
+</script>
+<!--#include virtual="navbar.html" -->
+<!-- Jika SSI tidak aktif, copy isi navbar.html ke sini secara manual -->
+<main class="relative w-full min-h-screen flex flex-col pt-10 pb-20">
+<div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none z-0"></div>
+<div class="absolute top-20 right-0 w-[600px] h-[600px] bg-accent-gold/20 rounded-full blur-3xl -z-10 mix-blend-multiply"></div>
+<div class="absolute top-40 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl -z-10 mix-blend-multiply"></div>
+<div class="layout-container max-w-7xl mx-auto px-4 md:px-10 flex flex-col lg:flex-row items-center justify-between w-full h-full gap-12 z-10">
+<div class="flex-1 flex flex-col items-start gap-6 relative max-w-2xl">
+<div class="absolute -top-12 -left-4 md:-left-12 transform -rotate-12 bg-accent-orange border-2 border-[#1a0f0f] text-[#1a0f0f] text-xs font-black px-3 py-1 shadow-hard-sm z-20">
+                    EST. 2024
+                </div>
+<div class="flex flex-col">
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-[#1a0f0f] drop-shadow-sm">
+<span class="block transform -rotate-2 origin-bottom-left cursor-explore">SUARA</span>
+<span class="inline-block bg-primary text-white px-4 py-1 transform rotate-1 border-2 border-[#1a0f0f] shadow-hard z-10 relative">MAHASISWA</span>
+</h1>
+<div class="mt-4 transform rotate-1">
+<span class="text-3xl md:text-5xl font-black text-[#1a0f0f] bg-accent-gold px-2 border-2 border-[#1a0f0f] shadow-hard-sm inline-block">
+                            UKM BAHASA &amp;
+                        </span>
+<br/>
+<span class="text-2xl md:text-4xl font-black text-[#1a0f0f] inline-block mt-2 bg-white px-2 border-2 border-[#1a0f0f] border-dashed">
+                             KOMUNIKASI
+                        </span>
+</div>
+</div>
+<div class="cursor-explore relative mt-6 bg-white p-6 border-2 border-[#1a0f0f] shadow-hard rotate-1 max-w-md hover:rotate-0 transition-transform">
+<div class="absolute -top-4 left-1/2 transform -translate-x-1/2 text-primary drop-shadow-md">
+<span class="material-symbols-outlined text-4xl filled">push_pin</span>
+</div>
+<p class="font-body text-lg font-medium leading-relaxed text-[#1a0f0f]">
+<span class="font-bold text-primary">Express Yourself. Be Heard.</span> 
+                        A hub for creativity, language, and communication arts at UIN Mahmud Yunus Batusangkar.
+                    </p>
+</div>
+<div class="flex flex-wrap items-center gap-6 mt-8">
+<a href="join.html" class="group relative inline-flex items-center justify-center bg-primary border-2 border-[#1a0f0f] px-8 py-4 text-white font-black text-lg uppercase tracking-wide shadow-hard hover:translate-y-1 hover:shadow-none transition-all rounded-lg overflow-hidden">
+  <span class="relative z-10 flex items-center gap-2">
+    Gabung Sekarang
+    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+  </span>
+  <div class="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</a>
+<a class="font-bold underline decoration-4 decoration-accent-gold underline-offset-4 hover:text-primary transition-colors" href="#">
+                        Pelajari Lebih Lanjut
+                    </a>
+</div>
+<div class="hidden lg:block absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 rotate-12 text-[#1a0f0f] opacity-80">
+<svg fill="none" height="100" viewBox="0 0 100 100" width="100" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 50C30 40 50 20 80 10M80 10L60 5M80 10L70 30" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+<span class="block text-sm font-handwriting rotate-12 mt-2 font-bold">Start here!</span>
+</div>
+</div>
+<div class="flex-1 relative w-full flex justify-center lg:justify-end mt-12 lg:mt-0 h-[500px] lg:h-auto">
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-accent-orange rounded-full border-4 border-[#1a0f0f] z-0"></div>
+<div class="cursor-explore relative z-10 transform rotate-3 hover:rotate-0 transition-transform duration-500 w-[320px] md:w-[400px]">
+<div class="bg-white p-4 pb-16 border-4 border-[#1a0f0f] shadow-hard-lg rounded-sm">
+<div class="bg-gray-200 aspect-[4/5] overflow-hidden border-2 border-[#1a0f0f] relative group">
+<div class="w-full h-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Portrait of a prominent student leader or figure smiling confidently" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDPMrY7X4mXD5vPu5m4eDwcF_UcYH7mlhh1pqajr7rAUo0n7EAnu8ona28WZNjVakJ9mifevnzcrHoAYUrSX3B-Qp2P0MUt9rYD8IzIO9dsINuhuGv2bVo1BXP5IwHZKQK596nARmtpbCkwD52uRh9cvwUm0lZeWlx9ZnrMY1V1fS7aCx8X9cy9oDUCOliq2ZREtjP4MwzYZ0zHPWBiRpy171zcSGJZXwylUgvlDJ_URe7biiCmHSyFUE3a9qHAbuZqxOLpSevllxs");'>
+</div>
+<div class="absolute top-2 right-2 bg-accent-gold text-[#1a0f0f] text-xs font-bold px-2 py-1 border-2 border-[#1a0f0f] -rotate-6 shadow-sm">
+                                #LEADER
+                            </div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-center">
+<h3 class="font-handwriting text-2xl font-black text-[#1a0f0f] -rotate-1">Mahmud Yunus</h3>
+<p class="text-xs font-bold text-gray-500 uppercase tracking-widest">Inspirasi Kita</p>
+</div>
+</div>
+</div>
+<div class="cursor-drag absolute top-0 left-0 md:left-10 transform -rotate-12 z-20 w-32 hover:scale-110 transition-transform">
+<div class="bg-white p-2 border-2 border-[#1a0f0f] shadow-hard-sm">
+<div class="aspect-square bg-cover bg-center border border-[#1a0f0f]" data-alt="Students debating in a classroom" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoNvNp3niIqWGWh4pw-Jqe3gln5TkhWtVX8LSEXK-VdwybWYWKaOYgBCRmi6FZbrdWATS6OWynYZ7e2MGx0f1ivftmNZEl7j-u7M6gXwOI7GDmmS6jemwGCbQueLJVDe5AsufpK3yXnDeXOAAuJrRGnsNjCvU0FvptUnyXje8r3ENFv_r_HlkmwH6GlIrFxdKon82qLdaT8Vo6NZIGeAMF9HZO6KLgJKuKstlVoPYFLQ_UMvZHIeby1s8M9TXb6-a1SpKyjPx4VoI");'></div>
+</div>
+<div class="bg-primary text-white text-[10px] font-bold text-center mt-1 border border-[#1a0f0f]">DEBATE</div>
+</div>
+<div class="cursor-drag absolute bottom-10 right-0 md:-right-4 transform rotate-6 z-20 w-40 hover:scale-110 transition-transform">
+<div class="bg-white p-2 border-2 border-[#1a0f0f] shadow-hard-sm">
+<div class="aspect-video bg-cover bg-center border border-[#1a0f0f]" data-alt="Group of students holding microphones" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnMO7_65I2_yAmyrlifOvGH5EO2mXCGFJ5QoIJ4ufagY-vg6qWF67foB8bF8IvZUaUWoOlRQVS-gUeO3UdnKBLxBwerwsJhLedb5q7wFqRd8GrYwppKrhlR5CMc-GFEqqCRGHESYQp9leiCl7GdQUQkb9tlfyQHJY1usg-4GWwF0-NYnSn8E-xnOXhMgtkgjpPOSoMrx-LsnXs4cUM932HR7fJruEsTuNrN9T3MbSD8wHbKnDKpbx5n_-oR9t7c-9h5s78kYiyIeg");'></div>
+</div>
+<div class="absolute -top-3 -right-3 bg-accent-gold rounded-full p-2 border-2 border-[#1a0f0f] shadow-sm">
+<span class="material-symbols-outlined text-sm font-bold">mic</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="relative w-full overflow-hidden bg-primary border-y-4 border-[#1a0f0f] transform -rotate-1 py-3 z-20 shadow-hard">
+<div class="flex whitespace-nowrap gap-8 items-center">
+<div class="flex gap-8 items-center text-white font-black text-xl uppercase tracking-widest">
+<span>Creativity</span> <span class="text-accent-gold">★</span>
+<span>Leadership</span> <span class="text-accent-gold">★</span>
+<span>Public Speaking</span> <span class="text-accent-gold">★</span>
+<span>Journalism</span> <span class="text-accent-gold">★</span>
+<span>Broadcasting</span> <span class="text-accent-gold">★</span>
+<span>Creativity</span> <span class="text-accent-gold">★</span>
+<span>Leadership</span> <span class="text-accent-gold">★</span>
+<span>Public Speaking</span> <span class="text-accent-gold">★</span>
+<span>Journalism</span> <span class="text-accent-gold">★</span>
+<span>Broadcasting</span> <span class="text-accent-gold">★</span>
+<span>Creativity</span> <span class="text-accent-gold">★</span>
+<span>Leadership</span> <span class="text-accent-gold">★</span>
+<span>Public Speaking</span> <span class="text-accent-gold">★</span>
+<span>Journalism</span> <span class="text-accent-gold">★</span>
+<span>Broadcasting</span> <span class="text-accent-gold">★</span>
+</div>
+</div>
+</div>
+<section class="py-24 bg-paper relative overflow-hidden">
+<div class="layout-container max-w-7xl mx-auto px-4 md:px-10">
+<div class="flex flex-col items-center mb-16 text-center">
+<h2 class="text-4xl md:text-5xl font-black text-[#1a0f0f] uppercase mb-4 relative inline-block">
+<span class="relative z-10">Why Join The Circus?</span>
+<span class="absolute bottom-1 left-0 w-full h-4 bg-accent-gold/60 -rotate-1 z-0"></span>
+</h2>
+<p class="max-w-2xl text-lg font-body text-gray-700">
+                    Unlock your potential in a chaotic yet organized environment designed for growth.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 p-4">
+<div class="relative group">
+<div class="absolute inset-0 bg-accent-orange rounded-lg transform translate-x-2 translate-y-2 border-2 border-[#1a0f0f]"></div>
+<div class="relative bg-white border-2 border-[#1a0f0f] p-8 rounded-lg transform -rotate-1 group-hover:rotate-0 transition-transform h-full flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary text-white border-2 border-[#1a0f0f] flex items-center justify-center rounded-full shadow-hard-sm mb-2">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h3 class="text-2xl font-black uppercase">Speak Loud</h3>
+<p class="font-body text-gray-700">Master the art of public speaking. Don't just talk, make them listen.</p>
+<div class="mt-auto pt-4 border-t-2 border-dashed border-gray-300 w-full">
+<span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded border border-gray-300">#Debate</span>
+</div>
+</div>
+</div>
+<div class="relative group mt-8 md:mt-0">
+<div class="absolute inset-0 bg-accent-gold rounded-lg transform translate-x-2 translate-y-2 border-2 border-[#1a0f0f]"></div>
+<div class="relative bg-white border-2 border-[#1a0f0f] p-8 rounded-lg transform rotate-2 group-hover:rotate-0 transition-transform h-full flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary text-white border-2 border-[#1a0f0f] flex items-center justify-center rounded-full shadow-hard-sm mb-2">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<h3 class="text-2xl font-black uppercase">Write Bold</h3>
+<p class="font-body text-gray-700">Express complex ideas through journalism and creative writing.</p>
+<div class="mt-auto pt-4 border-t-2 border-dashed border-gray-300 w-full">
+<span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded border border-gray-300">#Journalism</span>
+</div>
+</div>
+</div>
+<div class="relative group mt-8 md:mt-0">
+<div class="absolute inset-0 bg-primary rounded-lg transform translate-x-2 translate-y-2 border-2 border-[#1a0f0f]"></div>
+<div class="relative bg-white border-2 border-[#1a0f0f] p-8 rounded-lg transform -rotate-1 group-hover:rotate-0 transition-transform h-full flex flex-col gap-4">
+<div class="w-12 h-12 bg-accent-gold text-[#1a0f0f] border-2 border-[#1a0f0f] flex items-center justify-center rounded-full shadow-hard-sm mb-2">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<h3 class="text-2xl font-black uppercase">Lead Teams</h3>
+<p class="font-body text-gray-700">Organize events, lead divisions, and build your network.</p>
+<div class="mt-auto pt-4 border-t-2 border-dashed border-gray-300 w-full">
+<span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded border border-gray-300">#Leadership</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-[#1a0f0f] text-[#fbf8f8] py-12 border-t-4 border-primary relative">
+<div class="layout-container max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<h2 class="text-3xl font-black tracking-tight text-white">UKM BKM UINMYBSK</h2>
+<p class="text-gray-400 font-body max-w-sm">Jalan Sudirman No. 123, Batusangkar. Sumatra Barat.</p>
+</div>
+<div class="flex gap-4">
+<a class="p-3 bg-white text-[#1a0f0f] rounded-full hover:bg-accent-gold transition-colors" href="#">
+<span class="material-symbols-outlined block">mail</span>
+</a>
+<a class="p-3 bg-white text-[#1a0f0f] rounded-full hover:bg-accent-orange transition-colors" href="#">
+<span class="material-symbols-outlined block">public</span>
+</a>
+</div>
+</div>
+<div class="mt-12 text-center text-xs text-gray-600 font-mono uppercase tracking-widest">
+            © 2024 UKM Bahasa &amp; Komunikasi Mahmud Yunus. All rights reserved.
+        </div>
+</footer>
+
+</body></html>

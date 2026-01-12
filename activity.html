@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Activity Hub - UKM BKM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c1818",
+                        "primary-dark": "#800020",
+                        "accent-orange": "#FF6600",
+                        "accent-gold": "#FFD700",
+                        "background-light": "#fbf8f8",
+                        "background-dark": "#201212",
+                        "paper": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'hard': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'hard-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+                        'hard-primary': '4px 4px 0px 0px #8c1818',
+                        'hard-orange': '4px 4px 0px 0px #FF6600',
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .rotate-random-1 { transform: rotate(1deg); }
+            .rotate-random-2 { transform: rotate(-1.5deg); }
+            .rotate-random-3 { transform: rotate(2deg); }
+            .tape-effect {
+                background-color: #fceea7;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                transform: rotate(-2deg);
+                position: relative;
+            }
+            .tape-effect::before, .tape-effect::after {
+                content: '';
+                position: absolute;
+                background: rgba(255,255,255,0.4);
+                height: 100%;
+                width: 5px;
+                top: 0;
+            }
+            .tape-effect::before { left: -2px; }
+            .tape-effect::after { right: -2px; }
+            .scanlines {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,0),
+                    rgba(255,255,255,0) 50%,
+                    rgba(0,0,0,0.1) 50%,
+                    rgba(0,0,0,0.1)
+                );
+                background-size: 100% 4px;
+            }
+            .tilt-hover {
+                transition-property: all;
+                transition-duration: 300ms;
+            }
+            .tilt-hover:hover {
+                transform: translateY(-8px) rotate(1deg);
+                box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            }body {
+                cursor: none;
+            }
+            #custom-cursor {
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: #FFD700;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s ease, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                mix-blend-mode: difference;
+            }
+            #cursor-icon {
+                font-size: 0;
+                color: white;
+                transition: font-size 0.2s ease;
+            }.trail {
+                position: fixed;
+                pointer-events: none;
+                z-index: 9998;
+                width: 12px;
+                height: 12px;
+                background: #FFD700;
+                border-radius: 2px;
+                opacity: 0.6;
+            }.cursor-video #custom-cursor {
+                width: 80px;
+                height: 80px;
+                background: #FFD700;
+                mix-blend-mode: normal;
+                border: 2px solid black;
+            }
+            .cursor-video #cursor-icon {
+                font-size: 40px;
+                content: 'movie';
+            }
+            .cursor-image #custom-cursor {
+                width: 60px;
+                height: 60px;
+                background: #FF6600;
+                mix-blend-mode: normal;
+                border: 2px solid black;
+            }
+            .cursor-image #cursor-icon {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<!-- navbar.html: Komponen navbar yang reusable untuk semua halaman -->
+<nav class="sticky top-0 z-50 w-full px-4 py-4 pointer-events-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
+    <div class="relative group transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+      <div class="absolute inset-0 bg-accent-gold rounded-lg shadow-hard border-2 border-[#1a0f0f]"></div>
+      <div class="relative bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <div class="flex flex-col leading-none">
+          <span class="font-black text-lg tracking-tighter">UKM BKM</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-primary">UINMYBSK</span>
+        </div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-1 hover:rotate-0 hover:bg-accent-orange text-sm" href="index.html">Home</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-1 hover:rotate-0 hover:bg-accent-gold text-sm" href="activity.html">Events</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all rotate-2 hover:rotate-0 hover:bg-accent-orange text-sm" href="member.html">Gallery</a>
+      <a class="bg-white border-2 border-[#1a0f0f] px-4 py-2 rounded-full font-bold shadow-hard-sm hover:translate-y-1 hover:shadow-none transition-all -rotate-2 hover:rotate-0 hover:bg-accent-gold text-sm" href="organisation division.html">Divisions</a>
+                <a href="join.html" class="group relative inline-flex items-center justify-center bg-primary border-2 border-[#1a0f0f] px-8 py-4 text-white font-black text-lg uppercase tracking-wide shadow-hard hover:translate-y-1 hover:shadow-none transition-all rounded-lg overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Gabung Sekarang
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </span>
+                    <div class="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                </a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden bg-white border-2 border-[#1a0f0f] p-2 rounded-lg shadow-hard-sm active:shadow-none active:translate-y-1">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <div id="mobile-nav" class="fixed inset-0 z-[999] bg-black/40 backdrop-blur-sm flex justify-end transition-all duration-300 invisible opacity-0 pointer-events-none">
+      <div class="w-64 bg-white h-full shadow-hard-lg p-6 flex flex-col gap-4 transform translate-x-full transition-transform duration-300">
+        <button id="close-mobile-nav" class="self-end mb-6 bg-primary text-white rounded-full p-2 border-2 border-[#1a0f0f]">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="index.html">Home</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="activity.html">Events</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="member.html">Gallery</a>
+        <a class="mb-2 font-bold text-primary border-b border-gray-200 pb-2" href="organisation division.html">Divisions</a>
+        <a class="mb-2 font-bold text-white bg-primary rounded-full px-4 py-2 text-center" href="join.html">Join Us!</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const closeBtn = document.getElementById('close-mobile-nav');
+  if(btn && nav && closeBtn) {
+    btn.addEventListener('click', () => {
+      nav.classList.remove('invisible','opacity-0','pointer-events-none');
+      setTimeout(()=>{
+        nav.querySelector('div').classList.remove('translate-x-full');
+      },10);
+    });
+    closeBtn.addEventListener('click', () => {
+      nav.querySelector('div').classList.add('translate-x-full');
+      setTimeout(()=>{
+        nav.classList.add('invisible','opacity-0','pointer-events-none');
+      },300);
+    });
+    nav.addEventListener('click', e => {
+      if(e.target === nav) {
+        nav.querySelector('div').classList.add('translate-x-full');
+        setTimeout(()=>{
+          nav.classList.add('invisible','opacity-0','pointer-events-none');
+        },300);
+      }
+    });
+  }
+</script>
+<body class="bg-background-light dark:bg-background-dark text-[#1a0f0f] font-display overflow-x-hidden">
+<div id="custom-cursor">
+    <span class="material-symbols-outlined" id="cursor-icon"></span>
+</div>
+
+<!-- ===== Tambahkan logo UKM BKM di bawah ini jika ingin menampilkan logo di header ===== -->
+<!-- <img src="path/to/logo.png" alt="Logo UKM BKM" class="mx-auto my-4 w-32 h-auto" /> -->
+
+<main class="max-w-7xl mx-auto px-6 pb-24 relative">
+<div class="absolute top-20 left-10 text-accent-gold/20 -z-10 animate-pulse">
+<span class="material-symbols-outlined text-9xl rotate-12">star</span>
+</div>
+<div class="absolute top-40 right-20 text-accent-orange/10 -z-10">
+<span class="material-symbols-outlined text-[200px] -rotate-12">draw</span>
+</div>
+<section class="mt-16 mb-24 relative">
+    <!-- ===== Tambahkan foto utama/banner di bawah ini ===== -->
+    <!-- <img src="path/to/banner.jpg" alt="Banner UKM BKM" class="w-full rounded-xl mb-8" /> -->
+<div class="flex flex-col md:flex-row items-end gap-8 mb-8">
+<div class="relative">
+<h2 class="text-6xl md:text-8xl font-black tracking-tighter text-black uppercase leading-[0.9] transform -rotate-2">
+                    Rekam <br/>
+<span class="text-primary bg-accent-gold px-2">Jejak</span>
+</h2>
+<div class="absolute -right-12 top-0 rotate-12 hidden md:block">
+<span class="bg-black text-white text-xs font-bold px-2 py-1 rotate-12 inline-block">EST. 2024</span>
+</div>
+</div>
+<div class="pb-2 max-w-md">
+<p class="font-body text-lg font-medium leading-relaxed bg-white/80 p-4 border-l-4 border-accent-orange shadow-hard-sm">
+                    Our history, captured in motion. Dive into the archives of chaos, creativity, and communication.
+                </p>
+</div>
+</div>
+<div class="relative w-full max-w-5xl mx-auto group video-hover-target tilt-hover">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 w-1/3 h-6 bg-gray-800 rounded-t-xl z-0"></div>
+<div class="relative bg-white p-4 pb-12 border-4 border-gray-800 rounded-lg shadow-hard z-10">
+<div class="relative aspect-video bg-black overflow-hidden group-hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] transition-shadow duration-500">
+    
+        <!-- Video Embed Section: Paste YouTube link below -->
+        <div class="mb-4 flex flex-col gap-2">
+           
+        </div>
+        <div class="aspect-w-16 aspect-h-9 mb-4">
+                <iframe id="yt-iframe" src="https://www.youtube.com/embed/7UilRDldO_g" title="YouTube video" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-xl border-2 border-black" style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
+                <style>
+                    .aspect-w-16.aspect-h-9 {
+                        position: relative;
+                        width: 100%;
+                        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                        height: 0;
+                    }
+                    .aspect-w-16.aspect-h-9 iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                </style>
+        </div>
+        <script>
+            // Helper to extract video ID from various YouTube URL formats
+            function getYouTubeId(url) {
+                const regExp = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([\w-]{11})/;
+                const match = url.match(regExp);
+                return match ? match[1] : null;
+            }
+            document.getElementById('yt-link').addEventListener('change', function(e) {
+                const url = e.target.value;
+                const vid = getYouTubeId(url);
+                if (vid) {
+                    document.getElementById('yt-iframe').src = 'https://www.youtube.com/embed/' + vid;
+                } else {
+                    alert('Link tidak valid. Pastikan link YouTube benar!');
+                }
+            });
+        </script>
+</div>
+<div class="absolute bottom-3 right-4 transform rotate-1">
+<span class="font-handwriting font-bold text-gray-500 text-sm">PROJ. 01 // LATEST HIGHLIGHT</span>
+</div>
+</div>
+<div class="absolute -bottom-10 -left-10 md:-left-20 text-primary rotate-12 hidden md:block">
+<svg fill="none" height="80" viewBox="0 0 100 80" width="100" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 40 C 30 10, 70 10, 90 40" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path d="M90 40 L 80 25 M 90 40 L 75 45" fill="none" stroke="currentColor" stroke-width="4"></path>
+<text class="font-bold text-sm" fill="currentColor" x="0" y="70">WATCH THIS!</text>
+</svg>
+</div>
+</div>
+</section>
+<section class="flex flex-wrap gap-4 justify-center mb-16 px-4">
+<button class="bg-primary text-white font-bold px-6 py-2 rounded-full border-2 border-black shadow-hard hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all rotate-1">
+            All Archives
+        </button>
+<button class="bg-white text-black font-bold px-6 py-2 rounded-full border-2 border-black shadow-hard-sm hover:bg-accent-gold hover:shadow-hard hover:-rotate-1 transition-all">
+            Workshops
+        </button>
+<button class="bg-white text-black font-bold px-6 py-2 rounded-full border-2 border-black shadow-hard-sm hover:bg-accent-orange hover:text-white hover:rotate-1 transition-all">
+            Interviews
+        </button>
+<button class="bg-white text-black font-bold px-6 py-2 rounded-full border-2 border-black shadow-hard-sm hover:bg-primary-dark hover:text-white hover:-rotate-2 transition-all">
+            Performances
+        </button>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 auto-rows-auto">
+<div class="col-span-1 md:col-span-2 relative group p-2 video-hover-target tilt-hover">
+<div class="bg-primary-dark rounded-3xl p-6 shadow-hard border-4 border-black relative">
+<div class="absolute -top-8 left-1/2 w-1 h-8 bg-black -rotate-12"></div>
+<div class="absolute -top-8 left-1/2 w-1 h-8 bg-black rotate-12"></div>
+<div class="bg-[#111] rounded-[2rem] p-1 overflow-hidden relative aspect-[16/9]">
+<!-- Video Embed Section 2: Paste YouTube link below -->
+<div class="aspect-w-16 aspect-h-9" style="position:relative;width:100%;padding-bottom:56.25%;height:0;">
+    <iframe id="yt-iframe-2" src="https://www.youtube.com/embed/7UilRDldO_g" title="YouTube video" allowfullscreen class="absolute top-0 left-0 w-full h-full rounded-[1.8rem] border-2 border-black" style="position:absolute;inset:0;width:100%;height:100%;"></iframe>
+</div>
+<script>
+    function getYouTubeId2(url) {
+        const regExp = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([\w-]{11})/;
+        const match = url.match(regExp);
+        return match ? match[1] : null;
+    }
+    document.getElementById('yt-link-2').addEventListener('change', function(e) {
+        const url = e.target.value;
+        const vid = getYouTubeId2(url);
+        if (vid) {
+            document.getElementById('yt-iframe-2').src = 'https://www.youtube.com/embed/' + vid;
+        } else {
+            alert('Link tidak valid. Pastikan link YouTube benar!');
+        }
+    });
+</script>
+</div>
+<div class="flex justify-between items-center mt-4 px-4">
+<div class="flex gap-2">
+<div class="size-4 rounded-full bg-gray-400 border border-black"></div>
+<div class="size-4 rounded-full bg-gray-400 border border-black"></div>
+</div>
+<div class="w-1/2 h-2 bg-black/30 rounded-full mx-2 flex gap-1 justify-end px-1">
+<div class="w-1 h-full bg-black/50"></div>
+<div class="w-1 h-full bg-black/50"></div>
+<div class="w-1 h-full bg-black/50"></div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-2 tape-effect bg-yellow-100 px-4 py-2 rotate-2 shadow-md max-w-[80%]">
+<p class="font-body font-bold text-black text-sm">Public Speaking Workshop 2023</p>
+</div>
+</div>
+<div class="col-span-1 relative flex flex-col justify-center">
+<a class="block bg-white p-6 border-2 border-black shadow-hard rotate-1 hover:rotate-0 hover:scale-105 transition-all group tilt-hover" href="#">
+<div class="flex items-center gap-2 mb-4 text-accent-orange font-bold uppercase text-xs tracking-widest border-b-2 border-dashed border-gray-200 pb-2">
+<span class="material-symbols-outlined text-sm">article</span>
+                    Blog Highlight
+                </div>
+<h3 class="text-2xl font-black leading-tight mb-3 group-hover:text-primary transition-colors">
+                    5 Ways to Master Stage Fright
+                </h3>
+<p class="font-body text-gray-600 text-sm mb-4 line-clamp-3">
+                    Nervous about your next speech? Our senior members share their battle-tested secrets for owning the stage.
+                </p>
+<div class="flex items-center text-sm font-bold text-black group-hover:underline decoration-accent-orange decoration-2 underline-offset-2">
+                    Read Article <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</div>
+</a>
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 size-4 rounded-full bg-primary border border-black shadow-sm z-10"></div>
+</div>
+<div class="col-span-1 relative mt-8 md:mt-0 tilt-hover">
+<div class="bg-white p-3 pb-12 shadow-hard border border-gray-200 -rotate-2 hover:rotate-0 transition-transform duration-300 image-hover-target">
+<div class="aspect-square bg-gray-100 overflow-hidden relative grayscale hover:grayscale-0 transition-all">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up of a retro microphone on a stand" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuomlkG_QlFhb1wE8Up3pVlOwfZjytIPvOYhkIytL4zhdQJhUmYUcnG_dComuG6gjF79QAW7PHvAb8_0iwQgyBJ2V5XOVGF1Zgrtap-U3QKIJLYz1IuPWuLA8ttR7jjCz5VumQuGdSD_O8EZ8pSE7wp0BSlStmPtX57ZDjCiKUOEmQGBbFd7BNAHrxZLP8Ab2UBLaKU4xkKMCW40t_J4QZAeauqdCvmHrJC5Gam4RsCeGlMem_dXV-kEi6L_5ACbNzh70JLnz6esg');"></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="material-symbols-outlined text-white text-5xl drop-shadow-lg">play_circle</span>
+</div>
+</div>
+<div class="mt-4 text-center font-handwriting">
+<p class="font-display font-bold text-lg leading-tight">Podcast Ep. 4</p>
+<p class="font-body text-xs text-gray-500">"Voice of Batusangkar"</p>
+</div>
+</div>
+<div class="absolute -top-2 -right-2 bg-accent-orange text-white text-xs font-bold px-2 py-1 rotate-12 rounded-sm shadow-sm border border-white">NEW</div>
+</div>
+<div class="col-span-1 relative flex items-center">
+<a class="block bg-accent-gold p-6 shadow-hard-primary border-2 border-black rotate-2 hover:-rotate-1 hover:scale-105 transition-all relative overflow-hidden tilt-hover" href="#">
+<div class="absolute -right-8 -top-8 bg-black text-white w-24 h-24 flex items-end justify-center rotate-45 transform">
+<span class="mb-2 font-bold text-xs">HOT</span>
+</div>
+<h3 class="text-xl font-black leading-tight mb-2">
+                    Language Fair Recap
+                </h3>
+<p class="font-body text-black/80 text-sm mb-4">
+                    The biggest event of the year in photos! Check out the gallery.
+                </p>
+<div class="inline-block border-b-2 border-black font-bold text-sm">See Gallery</div>
+</a>
+</div>
+<div class="col-span-1 md:col-span-2 lg:col-span-1 relative mt-8 tilt-hover video-hover-target">
+<div class="bg-[#e0e0e0] rounded-xl p-4 pt-4 pb-8 shadow-hard border-4 border-gray-400 relative">
+<div class="text-center mb-2">
+<span class="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase">Sony-BKM</span>
+</div>
+<div class="aspect-[4/3] bg-black border-4 border-gray-500 rounded-lg overflow-hidden relative group">
+<div class="w-full h-full bg-cover bg-center opacity-80 group-hover:opacity-100 transition-opacity" data-alt="Group of students brainstorming around a table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQaTO5iF-dSZBRurnnROLUGpSICrWwM3N4KcaSB4tovhkchBloqcLYBNwaweFuvvyMfo32Da_2lp5wE_AkgQMOmcfmVjqoEmCN11YwDb_IcXetZegs0bui-OuV_mJWaE1qtczdS7fEQuqrSQNb_sFZ7m5x7Ehgvv0SLxMnxx5BM7rLC54d-Yn97n6l19A-_Sqn3ho8hHeNbprMYBkdlfzn9Ma5QA727pPjSMHytLcFC0DCgcIVC2pZ-6EUDWFvFI6RTjjfQqARn1A');"></div>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<span class="block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<span class="text-[10px] text-green-500 font-mono">LIVE FEED</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white/80 text-5xl">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-6 -right-4 text-primary -rotate-12">
+<span class="font-display font-black text-2xl">Behind the Scenes!</span>
+</div>
+</div>
+</section>
+<section class="mt-32 relative">
+<div class="bg-primary text-white rounded-2xl p-8 md:p-12 border-4 border-black shadow-hard-orange relative overflow-hidden transform -rotate-1 tilt-hover">
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-center md:text-left">
+<h2 class="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tight">Ready to join the circus?</h2>
+<p class="font-body text-white/90 text-lg max-w-lg">
+                        Be part of the most creative student organization on campus. We speak, we write, we create.
+                    </p>
+</div>
+<div class="flex flex-col gap-3">
+<button class="bg-accent-gold text-black px-8 py-4 font-black text-xl uppercase tracking-wider rounded-lg shadow-[4px_4px_0px_0px_#fff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#fff] transition-all border-2 border-black">
+    <a href="join.html" class="bg-accent-gold text-black px-8 py-4 font-black text-xl uppercase tracking-wider rounded-lg shadow-[4px_4px_0px_0px_#fff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#fff] transition-all border-2 border-black block text-center">Register Now</a>
+<p class="text-xs text-center text-white/70 font-mono mt-2">OPEN RECRUITMENT BATCH XII</p>
+</div>
+</div>
+</div>
+<div class="mt-12 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm font-bold border-t-2 border-dashed border-gray-300 pt-8">
+<div>© 2024 UKM BKM UIN Mahmud Yunus.</div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="hover:text-primary" href="#">Instagram</a>
+<a class="hover:text-primary" href="#">YouTube</a>
+<a class="hover:text-primary" href="#">TikTok</a>
+</div>
+</div>
+</section>
+</main>
+<audio id="static-sound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/2561/2561-preview.mp3"></audio>
+<audio id="camera-sound" preload="auto" src="https://assets.mixkit.co/active_storage/sfx/522/522-preview.mp3"></audio>
+<script>
+    const cursor = document.getElementById('custom-cursor');
+    const cursorIcon = document.getElementById('cursor-icon');
+    const staticSound = document.getElementById('static-sound');
+    const cameraSound = document.getElementById('camera-sound');
+    let lastX = 0;
+    let lastY = 0;
+    // Movement and Trail
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        // Create trail elements on significant movement
+        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+        if (dist > 30) {
+            createTrail(e.clientX, e.clientY);
+            lastX = e.clientX;
+            lastY = e.clientY;
+        }
+    });
+    function createTrail(x, y) {
+        const trail = document.createElement('div');
+        trail.className = 'trail';
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
+        // Randomly choose between a "film strip" square or a "sparkle"
+        const isSparkle = Math.random() > 0.5;
+        if (isSparkle) {
+            trail.style.borderRadius = '50%';
+            trail.style.width = '6px';
+            trail.style.height = '6px';
+        }
+        document.body.appendChild(trail);
+        setTimeout(() => {
+            trail.style.opacity = '0';
+            trail.style.transform = 'scale(0.5) translateY(20px)';
+            setTimeout(() => trail.remove(), 300);
+        }, 100);
+    }
+    // Video Hover Interactions
+    const videoTargets = document.querySelectorAll('.video-hover-target');
+    videoTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-video');
+            cursorIcon.textContent = 'movie'; // Film Reel/Play Reel feel
+            cursorIcon.style.animation = 'spin 2s linear infinite';
+            staticSound.volume = 0.1;
+            staticSound.play().catch(e => {});
+        });
+        target.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-video');
+            cursorIcon.textContent = '';
+            cursorIcon.style.animation = 'none';
+            staticSound.pause();
+            staticSound.currentTime = 0;
+        });
+    });
+    // Image Hover Interactions
+    const imageTargets = document.querySelectorAll('.image-hover-target, img, [data-alt]');
+    imageTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
+            document.body.classList.add('cursor-image');
+            cursorIcon.textContent = 'visibility'; // Eye/Magnifying Glass feel
+            cameraSound.volume = 0.2;
+            cameraSound.play().catch(e => {});
+        });
+        target.addEventListener('mouseleave', () => {
+            document.body.classList.remove('cursor-image');
+            cursorIcon.textContent = '';
+        });
+    });
+    // Rotation animation for the film reel icon
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
+</body></html>
